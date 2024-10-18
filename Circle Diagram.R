@@ -25,8 +25,11 @@ G <- c(0, y_theta)
 H <- c(0, 1)
 K <- c(-1, 0)
 L <- c(0, -1)
+M <- c(0, -0.5)
+N <- c(-0.5, 0)
 
 plot <- ggplot() +
+  
   # Circle
   geom_path(data = circle_data, aes(x = x, y = y), colour = "black", size = 2.5) +
   
@@ -56,10 +59,12 @@ plot <- ggplot() +
   geom_segment(aes(x = H[1], y = H[2], xend = F[1], yend = F[2]), colour = "darkgreen", size = 1.2) +
   
   # OL line (O to L)
-  geom_segment(aes(x = O[1], y = O[2], xend = L[1], yend = L[2]), colour = "turquoise", linetype = "dotted", size = 1.2) +
+  geom_segment(aes(x = O[1], y = O[2], xend = M[1], yend = M[2]), colour = "turquoise", linetype = "dotted", size = 1.2) +
+  geom_segment(aes(x = M[1], y = M[2], xend = L[1], yend = L[2]), colour = "lightgray", linetype = "longdash", size = 1.2) +
   
   # OK line (O to K)
-  geom_segment(aes(x = O[1], y = O[2], xend = K[1], yend = K[2]), colour = "lightpink", linetype = "dotted", size = 1.2) +
+  geom_segment(aes(x = O[1], y = O[2], xend = N[1], yend = N[2]), colour = "lightpink", linetype = "dotted", size = 1.2) +
+  geom_segment(aes(x = N[1], y = N[2], xend = K[1], yend = K[2]), colour = "lightgray", linetype = "longdash", size = 1.2) + 
   
   # CB line (B to C)
   geom_segment(aes(x = B[1], y = B[2], xend = C[1], yend = C[2]), colour = "lightgray", linetype = "longdash", size = 1.2) +
