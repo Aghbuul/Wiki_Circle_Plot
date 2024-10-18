@@ -79,6 +79,21 @@ plot <- ggplot() +
   geom_segment(aes(x = -0.5, y = F[2], xend = -0.5, yend = 0), colour = "lightpink", size = 1.2,
                arrow = arrow(type = "closed", ends = "both", length = unit(0.2, "inches"))) +
   
+  # Add labels to each coordinate
+  geom_text(aes(x = O[1] - 0.07, y = O[2] - 0.07, label = "O"), colour = "black", size = 7) +
+  geom_text(aes(x = A[1] + 0.09, y = A[2] + 0.07, label = "A"), colour = "black", size = 7) +
+  geom_text(aes(x = B[1] + 0.07, y = B[2] - 0.07, label = "B"), colour = "black", size = 7) +
+  geom_text(aes(x = C[1] + 0.07, y = C[2] + 0.09, label = "C"), colour = "black", size = 7) +
+  geom_text(aes(x = D[1] + 0.07, y = D[2] - 0.07, label = "D"), colour = "black", size = 7) +
+  geom_text(aes(x = E[1] + 0.07, y = E[2] - 0.07, label = "E"), colour = "black", size = 7) +
+  geom_text(aes(x = F[1] + 0.00, y = F[2] + 0.08, label = "F"), colour = "black", size = 7) +
+  geom_text(aes(x = G[1] - 0.07, y = G[2] - 0.07, label = "G"), colour = "black", size = 7) +
+  geom_text(aes(x = H[1] + 0.07, y = H[2] + 0.07, label = "H"), colour = "black", size = 7) +
+  geom_text(aes(x = K[1] - 0.10, y = K[2] + 0.00, label = "K"), colour = "black", size = 7) +
+  geom_text(aes(x = L[1] + 0.00, y = L[2] - 0.07, label = "L"), colour = "black", size = 7) +
+  geom_text(aes(x = M[1] + 0.07, y = M[2] + 0.07, label = "M"), colour = "black", size = 7) +
+  geom_text(aes(x = N[1] + 0.07, y = N[2] + 0.07, label = "N"), colour = "black", size = 7) +
+  
   coord_fixed() +
   theme_void()
 
