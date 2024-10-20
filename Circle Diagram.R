@@ -45,18 +45,23 @@ plot <- ggplot() +
   # Red vertical lines (A to C and O to G)
   geom_segment(aes(x = A[1], y = A[2], xend = C[1], yend = C[2]), colour = "red", linewidth = 1.2) +
   geom_segment(aes(x = O[1], y = O[2], xend = G[1], yend = G[2]), colour = "red", linewidth = 1.2) +
+  geom_text(aes(x = A[1]+0.11, y = (O[2] + A[2]) / 2, label = "sin"), colour = "red", size = 7) +
   
   # Blue cos line (O to C)
   geom_segment(aes(x = O[1], y = O[2], xend = C[1], yend = C[2]), colour = "blue", linewidth = 1.2) +
+  geom_text(aes(x = (O[1] + C[1]) / 2, y = O[2] - 0.05, label = "cos"), colour = "blue", size = 7) +
   
   # Green versin line (C to D)
   geom_segment(aes(x = C[1], y = C[2], xend = D[1], yend = D[2]), colour = "green", linewidth = 1.2) +
+  geom_text(aes(x = (C[1] + D[1]) / 2, y = C[2] - 0.05, label = "versin"), colour = "green", size = 7) +
   
   # Cyan coversin line (G to H)
   geom_segment(aes(x = G[1], y = G[2], xend = H[1], yend = H[2]), colour = "cyan", linewidth = 1.2) +
+  geom_text(aes(x = -0.2, y = (G[2] + H[2]) / 2, label = "coversin"), colour = "cyan", size = 4) +
   
-  # Dark green exsec line (H to F)
+  # Dark green excsc line (H to F)
   geom_segment(aes(x = H[1], y = H[2], xend = F[1], yend = F[2]), colour = "darkgreen", linewidth = 1.2) +
+  geom_text(aes(x = -0.2, y = (H[2] + F[2]) / 2, label = "excsc"), colour = "darkgreen", size = 6) +
   
   # OL line
   geom_segment(aes(x = O[1], y = O[2], xend = M[1], yend = M[2]), colour = "turquoise", linetype = "dotted", linewidth = 1.2) +
@@ -71,13 +76,16 @@ plot <- ggplot() +
   
   # Orange cotangent line (F to A)
   geom_segment(aes(x = F[1], y = F[2], xend = A[1], yend = A[2]), colour = "orange", linewidth = 1.2) +
+  geom_text(aes(x = (F[1] + A[1]) / 2, y = F[2], label = "cot"), colour = "orange", size = 7) +
   
   # Tan tangent line (E to A)
   geom_segment(aes(x = E[1], y = E[2], xend = A[1], yend = A[2]), colour = "tan", linewidth = 1.2) +
+  geom_text(aes(x = (E[1] + A[1]) / 2, y = (E[2] + A[2]) / 2, label = "tan"), colour = "tan", size = 7) +
   
-  # Light pink exsec line with arrows
+  # Light pink csc line with arrows
   geom_segment(aes(x = -0.5, y = F[2], xend = -0.5, yend = 0), colour = "lightpink", linewidth = 1.2,
                arrow = arrow(type = "closed", ends = "both", length = unit(0.2, "inches"))) +
+  geom_text(aes(x = -0.5, y = (E[2] + A[2]) / 2, label = "csc"), colour = "lightpink", size = 7) +
   
   # Purple covercos line
   geom_segment(aes(x = -0.65, y = A[2], xend = -0.65, yend = B[2]), colour = "purple", linewidth = 1.2,
@@ -90,7 +98,7 @@ plot <- ggplot() +
   # Turquoise sec line
   geom_segment(aes(x = M[1], y = M[2] + 0.05, xend = E[1], yend = M[2] + 0.05), colour = "turquoise", linewidth = 1.2,
                arrow = arrow(type = "closed", ends = "both", length = unit(0.2, "inches"))) +
-  geom_text(aes(x = (M[1] + E[1]) / 2, y = (M[2] + 0.05) - 0.07, label = "sec"), colour = "turquoise", size = 7) +
+  geom_text(aes(x = (M[1] + E[1]) / 2, y = M[2] - 0.07, label = "sec"), colour = "turquoise", size = 7) +
 
   # Turquoise secant label line on the right
   geom_segment(aes(x = E[1], y = E[2], xend = E[1], yend = M[2]-0.05), colour = "turquoise", linetype = "dotted", linewidth = 1.2) +
