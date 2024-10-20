@@ -31,81 +31,83 @@ N <- c(-0.5, 0)
 plot <- ggplot() +
   
   # Circle
-  geom_path(data = circle_data, aes(x = x, y = y), colour = "black", size = 2.5) +
+  geom_path(data = circle_data, aes(x = x, y = y), colour = "black", linewidth = 1.2) +
   
   # Theta line (O to A)
-  geom_segment(aes(x = O[1], y = O[2], xend = A[1], yend = A[2]), colour = "black", size = 1.2) +
+  geom_segment(aes(x = O[1], y = O[2], xend = A[1], yend = A[2]), colour = "black", linewidth = 1.2) +
   
   # Dotted theta extra line (A to A_extra)
-  geom_segment(aes(x = A[1], y = A[2], xend = A_extra[1], yend = A_extra[2]), colour = "black", linetype = "dotted", size = 1.2) +
+  geom_segment(aes(x = A[1], y = A[2], xend = A_extra[1], yend = A_extra[2]), colour = "black", linetype = "dotted", linewidth = 1.2) +
   
   # Mirror theta line (O to B)
-  geom_segment(aes(x = O[1], y = O[2], xend = B[1], yend = B[2]), colour = "black", linetype = "longdash", size = 1.2) +
+  geom_segment(aes(x = O[1], y = O[2], xend = B[1], yend = B[2]), colour = "black", linetype = "longdash", linewidth = 1.2) +
   
   # Red vertical lines (A to C and O to G)
-  geom_segment(aes(x = A[1], y = A[2], xend = C[1], yend = C[2]), colour = "red", size = 1.2) +
-  geom_segment(aes(x = O[1], y = O[2], xend = G[1], yend = G[2]), colour = "red", size = 1.2) +
+  geom_segment(aes(x = A[1], y = A[2], xend = C[1], yend = C[2]), colour = "red", linewidth = 1.2) +
+  geom_segment(aes(x = O[1], y = O[2], xend = G[1], yend = G[2]), colour = "red", linewidth = 1.2) +
   
   # Blue cos line (O to C)
-  geom_segment(aes(x = O[1], y = O[2], xend = C[1], yend = C[2]), colour = "blue", size = 1.2) +
+  geom_segment(aes(x = O[1], y = O[2], xend = C[1], yend = C[2]), colour = "blue", linewidth = 1.2) +
   
   # Green versin line (C to D)
-  geom_segment(aes(x = C[1], y = C[2], xend = D[1], yend = D[2]), colour = "green", size = 1.2) +
+  geom_segment(aes(x = C[1], y = C[2], xend = D[1], yend = D[2]), colour = "green", linewidth = 1.2) +
   
   # Cyan coversin line (G to H)
-  geom_segment(aes(x = G[1], y = G[2], xend = H[1], yend = H[2]), colour = "cyan", size = 1.2) +
+  geom_segment(aes(x = G[1], y = G[2], xend = H[1], yend = H[2]), colour = "cyan", linewidth = 1.2) +
   
   # Dark green exsec line (H to F)
-  geom_segment(aes(x = H[1], y = H[2], xend = F[1], yend = F[2]), colour = "darkgreen", size = 1.2) +
+  geom_segment(aes(x = H[1], y = H[2], xend = F[1], yend = F[2]), colour = "darkgreen", linewidth = 1.2) +
   
   # OL line
-  geom_segment(aes(x = O[1], y = O[2], xend = M[1], yend = M[2]), colour = "turquoise", linetype = "dotted", size = 1.2) +
-  geom_segment(aes(x = M[1], y = M[2], xend = L[1], yend = L[2]), colour = "gray", linetype = "longdash", size = 1.2) +
+  geom_segment(aes(x = O[1], y = O[2], xend = M[1], yend = M[2]), colour = "turquoise", linetype = "dotted", linewidth = 1.2) +
+  geom_segment(aes(x = M[1], y = M[2], xend = L[1], yend = L[2]), colour = "gray", linetype = "longdash", linewidth = 1.2) +
   
   # OK line
-  geom_segment(aes(x = O[1], y = O[2], xend = N[1], yend = N[2]), colour = "lightpink", linetype = "dotted", size = 1.2) +
-  geom_segment(aes(x = N[1], y = N[2], xend = K[1], yend = K[2]), colour = "gray", linetype = "longdash", size = 1.2) + 
+  geom_segment(aes(x = O[1], y = O[2], xend = N[1], yend = N[2]), colour = "lightpink", linetype = "dotted", linewidth = 1.2) +
+  geom_segment(aes(x = N[1], y = N[2], xend = K[1], yend = K[2]), colour = "gray", linetype = "longdash", linewidth = 1.2) + 
   
   # CB line
-  geom_segment(aes(x = B[1], y = B[2], xend = C[1], yend = C[2]), colour = "gray", linetype = "longdash", size = 1.2) +
+  geom_segment(aes(x = B[1], y = B[2], xend = C[1], yend = C[2]), colour = "gray", linetype = "longdash", linewidth = 1.2) +
   
   # Orange cotangent line (F to A)
-  geom_segment(aes(x = F[1], y = F[2], xend = A[1], yend = A[2]), colour = "orange", size = 1.2) +
+  geom_segment(aes(x = F[1], y = F[2], xend = A[1], yend = A[2]), colour = "orange", linewidth = 1.2) +
   
   # Tan tangent line (E to A)
-  geom_segment(aes(x = E[1], y = E[2], xend = A[1], yend = A[2]), colour = "tan", size = 1.2) +
+  geom_segment(aes(x = E[1], y = E[2], xend = A[1], yend = A[2]), colour = "tan", linewidth = 1.2) +
   
-  # Light pink exsec line (F to K) with arrows
-  geom_segment(aes(x = -0.5, y = F[2], xend = -0.5, yend = 0), colour = "lightpink", size = 1.2,
+  # Light pink exsec line with arrows
+  geom_segment(aes(x = -0.5, y = F[2], xend = -0.5, yend = 0), colour = "lightpink", linewidth = 1.2,
                arrow = arrow(type = "closed", ends = "both", length = unit(0.2, "inches"))) +
   
   # Purple covercos line
-  geom_segment(aes(x = -0.65, y = A[2], xend = -0.65, yend = B[2]), colour = "purple", size = 1.2,
+  geom_segment(aes(x = -0.65, y = A[2], xend = -0.65, yend = B[2]), colour = "purple", linewidth = 1.2,
                arrow = arrow(type = "closed", ends = "both", length = unit(0.2, "inches"))) +
   
   # Blue vercos line
-  geom_segment(aes(x = K[1], y = K[2] - 0.25, xend = C[1], yend = C[2] - 0.25), colour = "blue", size = 1.2,
+  geom_segment(aes(x = K[1], y = K[2] - 0.25, xend = C[1], yend = C[2] - 0.25), colour = "blue", linewidth = 1.2,
                arrow = arrow(type = "closed", ends = "both", length = unit(0.2, "inches"))) +
   
   # Turquoise sec line
-  geom_segment(aes(x = M[1], y = M[2] + 0.05, xend = E[1], yend = M[2] + 0.05), colour = "turquoise", size = 1.2,
+  geom_segment(aes(x = M[1], y = M[2] + 0.05, xend = E[1], yend = M[2] + 0.05), colour = "turquoise", linewidth = 1.2,
                arrow = arrow(type = "closed", ends = "both", length = unit(0.2, "inches"))) +
-  
+  geom_text(aes(x = (M[1] + E[1]) / 2, y = (M[2] + 0.05) - 0.07, label = "sec"), colour = "turquoise", size = 7) +
+
   # Turquoise secant label line on the right
-  geom_segment(aes(x = E[1], y = E[2], xend = E[1], yend = M[2]-0.05), colour = "turquoise", linetype = "dotted", size = 1.2) +
+  geom_segment(aes(x = E[1], y = E[2], xend = E[1], yend = M[2]-0.05), colour = "turquoise", linetype = "dotted", linewidth = 1.2) +
   
   # Light gray crd line
-  geom_segment(aes(x = A[1], y = A[2], xend = D[1], yend = D[2]), colour = "lightgray", size = 1.2) +
+  geom_segment(aes(x = A[1], y = A[2], xend = D[1], yend = D[2]), colour = "lightgray", linewidth = 1.2) +
   
-  # Sky blue blue A to H line
-  geom_segment(aes(x = A[1], y = A[2], xend = H[1], yend = H[2]), colour = "deepskyblue", size = 1.2) +
+  # Sky blue A to H line
+  geom_segment(aes(x = A[1], y = A[2], xend = H[1], yend = H[2]), colour = "deepskyblue", linewidth = 1.2) +
   
-  # Pink csc line
-  geom_segment(aes(x = D[1], y = D[2], xend = E[1], yend = E[2]), colour = "pink", size = 1.2) +
+  # Pink exsec line
+  geom_segment(aes(x = D[1], y = D[2], xend = E[1], yend = E[2]), colour = "pink", linewidth = 1.2) +
+  geom_text(aes(x = (D[1] + E[1]) / 2 + 0.07, y = D[2]-0.05 , label = "exsec"), colour = "pink", size = 7) +
   
   # Light gray dotted extra line 
-  geom_segment(aes(x = K[1], y = K[2], xend = K[1], yend = K[2] - 0.5), colour = "lightgray", linetype = "dotted", size = 1.2) +
-  geom_segment(aes(x = L[1], y = L[2], xend = L[1]- 0.8, yend = L[2]), colour = "lightgray", linetype = "dotted", size = 1.2) +
+  geom_segment(aes(x = K[1], y = K[2], xend = K[1], yend = K[2] - 0.5), colour = "lightgray", linetype = "dotted", linewidth = 1.2) +
+  geom_segment(aes(x = L[1], y = L[2], xend = L[1]- 0.8, yend = L[2]), colour = "lightgray", linetype = "dotted", linewidth = 1.2) +
   
   
   # Add labels to each coordinate
@@ -122,6 +124,7 @@ plot <- ggplot() +
   geom_text(aes(x = L[1] + 0.00, y = L[2] - 0.07, label = "L"), colour = "black", size = 7) +
   geom_text(aes(x = M[1] + 0.07, y = M[2] + 0.07, label = "M"), colour = "black", size = 7) +
   geom_text(aes(x = N[1] + 0.07, y = N[2] + 0.07, label = "N"), colour = "black", size = 7) +
+  
   
   coord_fixed() +
   theme_void()
