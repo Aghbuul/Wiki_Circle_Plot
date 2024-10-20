@@ -158,7 +158,7 @@ plot <- ggplot() +
   geom_text(aes(x = H[1] + 0.07, y = H[2] + 0.02, label = "H"), colour = "black", size = 7) +
   geom_text(aes(x = K[1] - 0.10, y = K[2] + 0.00, label = "K"), colour = "black", size = 7) +
   geom_text(aes(x = L[1] + 0.00, y = L[2] - 0.07, label = "L"), colour = "black", size = 7) +
-  #I put M and N there to make it easier to set where the lines should go
+  # I put M and N there to make it easier to set where the lines should go
   #geom_text(aes(x = M[1] + 0.07, y = M[2] + 0.07, label = "M"), colour = "black", size = 7) +
   #geom_text(aes(x = N[1] + 0.07, y = N[2] + 0.07, label = "N"), colour = "black", size = 7) +
   
