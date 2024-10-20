@@ -3,12 +3,6 @@ library(ggplot2)
 # Set theta value
 theta <- pi / 3
 
-# Circle data
-circle_data <- data.frame(
-  x = cos(seq(0, 2 * pi, length.out = 100)),
-  y = sin(seq(0, 2 * pi, length.out = 100))
-)
-
 # Coordinates
 x_theta <- cos(theta)
 y_theta <- sin(theta)
@@ -31,7 +25,11 @@ N <- c(-0.5, 0)
 plot <- ggplot() +
   
   # Circle
-  geom_path(data = circle_data, aes(x = x, y = y), colour = "black", linewidth = 1.2) +
+  geom_path(data = data.frame(
+    x = cos(seq(0, 2 * pi, length.out = 100)),
+    y = sin(seq(0, 2 * pi, length.out = 100))
+  ), 
+  aes(x = x, y = y), colour = "black", linewidth = 1.2) +
   
   # Theta line (O to A)
   geom_segment(aes(x = O[1], y = O[2], xend = A[1], yend = A[2]), colour = "black", linewidth = 1.2) +
@@ -120,6 +118,29 @@ plot <- ggplot() +
   geom_segment(aes(x = L[1], y = L[2], xend = L[1]- 0.8, yend = L[2]), colour = "lightgray", linetype = "dotted", linewidth = 1.2) +
   geom_segment(aes(x = G[1], y = G[2], xend = G[1]- 0.8, yend = G[2]), colour = "lightgray", linetype = "dotted", linewidth = 1.2) +
   
+  # Right angle at C
+  geom_segment(aes(x = C[1] - 0.1, y = C[2], xend = C[1] - 0.1, yend = C[2] + 0.1), colour = "black", linewidth = 1.2) +
+  geom_segment(aes(x = C[1] - 0.1, y = C[2] + 0.1, xend = C[1], yend = C[2] + 0.1), colour = "black", linewidth = 1.2) +
+  
+  # Right angle at O
+  geom_segment(aes(x = O[1] - 0.1, y = O[2], xend = O[1] - 0.1, yend = O[2] + 0.1), colour = "black", linewidth = 1.2) +
+  geom_segment(aes(x = O[1] - 0.1, y = O[2] + 0.1, xend = O[1], yend = O[2] + 0.1), colour = "black", linewidth = 1.2) +
+  
+  # Right angle at G
+  geom_segment(aes(x = G[1] + 0.1, y = G[2], xend = G[1] + 0.1, yend = G[2] - 0.1), colour = "black", linewidth = 1.2) +
+  geom_segment(aes(x = G[1] + 0.1, y = G[2] - 0.1, xend = G[1], yend = G[2] - 0.1), colour = "black", linewidth = 1.2) +
+  
+  # Theta angle
+  geom_path(data = data.frame(
+    x = cos(seq(0, theta, length.out = 100)) * 0.1, y = sin(seq(0, theta, length.out = 100)) * 0.1), 
+    aes(x = x, y = y), colour = "black", linewidth = 1) +
+  geom_text(aes(x = 0.15, y = 0.1, label = "θ"), colour = "black", size = 7) +
+
+  # arc
+  geom_path(data = data.frame(
+    x = cos(seq(0, theta, length.out = 100)), y = sin(seq(0, theta, length.out = 100))), 
+    aes(x = x, y = y), colour = "black", linewidth = 2) +
+  geom_text(aes(x = 1.12, y = 0.25, label = "arc"), colour = "black", size = 7) +
   
   # Add labels to each coordinate
   geom_text(aes(x = O[1] - 0.07, y = O[2] - 0.07, label = "O"), colour = "black", size = 7) +
