@@ -117,7 +117,11 @@ plot <- ggplot() +
   geom_segment(aes(x = K[1], y = K[2], xend = K[1], yend = K[2] - 0.5), colour = "lightgray", linetype = "dotted", linewidth = 1.2) +
   geom_segment(aes(x = L[1], y = L[2], xend = L[1]- 0.8, yend = L[2]), colour = "lightgray", linetype = "dotted", linewidth = 1.2) +
   geom_segment(aes(x = G[1], y = G[2], xend = G[1]- 0.8, yend = G[2]), colour = "lightgray", linetype = "dotted", linewidth = 1.2) +
-  
+
+  # Right angle at A (there must be an easier way to do this...)
+  geom_segment(aes(x = (F[1] - A[1]) / 9 + (A_extra[1] - A[1]) / 6 + A[1], y = (F[2] - A[2]) / 9 + (A_extra[2] - A[2]) / 6 + A[2], xend = (F[1] - A[1]) / 9 + A[1], yend = (F[2] - A[2]) / 9 + A[2]), linewidth = 1.2) +
+  geom_segment(aes(x = (F[1] - A[1]) / 9 + (A_extra[1] - A[1]) / 6 + A[1], y = (F[2] - A[2]) / 9 + (A_extra[2] - A[2]) / 6 + A[2], xend = (A_extra[1] - A[1]) / 6 + A[1], yend = (A_extra[2] - A[2]) / 5 + A[2]), linewidth = 1.2) +
+
   # Right angle at C
   geom_segment(aes(x = C[1] - 0.1, y = C[2], xend = C[1] - 0.1, yend = C[2] + 0.1), colour = "black", linewidth = 1.2) +
   geom_segment(aes(x = C[1] - 0.1, y = C[2] + 0.1, xend = C[1], yend = C[2] + 0.1), colour = "black", linewidth = 1.2) +
@@ -136,12 +140,12 @@ plot <- ggplot() +
     aes(x = x, y = y), colour = "black", linewidth = 1) +
   geom_text(aes(x = 0.15, y = 0.1, label = "θ"), colour = "black", size = 7) +
 
-  # arc
+  # Thick arc 
   geom_path(data = data.frame(
     x = cos(seq(0, theta, length.out = 100)), y = sin(seq(0, theta, length.out = 100))), 
     aes(x = x, y = y), colour = "black", linewidth = 2) +
   geom_text(aes(x = 1.12, y = 0.25, label = "arc"), colour = "black", size = 7) +
-  
+
   # Add labels to each coordinate
   geom_text(aes(x = O[1] - 0.07, y = O[2] - 0.07, label = "O"), colour = "black", size = 7) +
   geom_text(aes(x = A[1] + 0.09, y = A[2] + 0.07, label = "A"), colour = "black", size = 7) +
@@ -158,6 +162,12 @@ plot <- ggplot() +
   #geom_text(aes(x = M[1] + 0.07, y = M[2] + 0.07, label = "M"), colour = "black", size = 7) +
   #geom_text(aes(x = N[1] + 0.07, y = N[2] + 0.07, label = "N"), colour = "black", size = 7) +
   
+  # Top right legend
+  geom_text(aes(x = 1.2, y = 1.3, label = "sec=OE"), colour = "lightseagreen", size = 5, hjust = 0) +
+  geom_text(aes(x = 1.2, y = 1.2, label = "csc=OF"), colour = "lightpink", size = 5, hjust = 0) +
+  geom_text(aes(x = 1.2, y = 1.1, label = "vercos=CK"), colour = "steelblue", size = 5, hjust = 0) +
+  geom_text(aes(x = 1.2, y = 1.0, label = "coversin=GH"), colour = "cyan", size = 5, hjust = 0) +
+  geom_text(aes(x = 1.2, y = 0.9, label = "covercos=GL"), colour = "purple", size = 5, hjust = 0) +
   
   coord_fixed() +
   theme_void()
