@@ -85,15 +85,17 @@ plot <- ggplot() +
   # Light pink csc line with arrows
   geom_segment(aes(x = -0.5, y = F[2], xend = -0.5, yend = 0), colour = "lightpink", linewidth = 1.2,
                arrow = arrow(type = "closed", ends = "both", length = unit(0.2, "inches"))) +
-  geom_text(aes(x = -0.5, y = (E[2] + A[2]) / 2, label = "csc"), colour = "lightpink", size = 7) +
+  geom_text(aes(x = -0.35, y = F[2] / 2, label = "csc"), colour = "lightpink", size = 7) +
   
   # Purple covercos line
   geom_segment(aes(x = -0.65, y = A[2], xend = -0.65, yend = B[2]), colour = "purple", linewidth = 1.2,
                arrow = arrow(type = "closed", ends = "both", length = unit(0.2, "inches"))) +
+  geom_text(aes(x = -0.7, y = (A[2] + B[2]) / 2, label = "covercos"), colour = "purple", size = 7) +
   
   # Blue vercos line
-  geom_segment(aes(x = K[1], y = K[2] - 0.25, xend = C[1], yend = C[2] - 0.25), colour = "blue", linewidth = 1.2,
+  geom_segment(aes(x = K[1], y = K[2] - 0.25, xend = C[1], yend = C[2] - 0.25), colour = "steelblue", linewidth = 1.2,
                arrow = arrow(type = "closed", ends = "both", length = unit(0.2, "inches"))) +
+  geom_text(aes(x = (K[1] + C[1]) / 2, y = K[2] - 0.3, label = "vercos"), colour = "steelblue", size = 7) +
   
   # Turquoise sec line
   geom_segment(aes(x = M[1], y = M[2] + 0.05, xend = E[1], yend = M[2] + 0.05), colour = "turquoise", linewidth = 1.2,
@@ -103,8 +105,9 @@ plot <- ggplot() +
   # Turquoise secant label line on the right
   geom_segment(aes(x = E[1], y = E[2], xend = E[1], yend = M[2]-0.05), colour = "turquoise", linetype = "dotted", linewidth = 1.2) +
   
-  # Light gray crd line
+  # Light gray crd line (A to D)
   geom_segment(aes(x = A[1], y = A[2], xend = D[1], yend = D[2]), colour = "lightgray", linewidth = 1.2) +
+  geom_text(aes(x = (A[1] + D[1]) / 2, y = (A[2] + D[2]) / 2, label = "crd"), colour = "lightgray", size = 7) +
   
   # Sky blue A to H line
   geom_segment(aes(x = A[1], y = A[2], xend = H[1], yend = H[2]), colour = "deepskyblue", linewidth = 1.2) +
